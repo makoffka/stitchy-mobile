@@ -9,25 +9,25 @@
 <style>.primary{position:relative}.primary input{display:block;position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}</style>
 </head>
 <body>
-<header><div><b>Stitchy</b><span id="subtitle">Mobile stitching companion</span></div><button id="libraryBtn">Projects</button></header>
+<header><div><b>Stitchy</b><span id="subtitle">Mobile stitching companion</span></div><div class="headerActions"><button id="homeBtn" title="Return to the home screen without losing progress" hidden>Home</button><button id="libraryBtn" title="Open one of your saved patterns">Projects</button></div></header>
 <main id="home">
   <section class="welcome"><img src="icon-192.png" alt=""><h1>Your pattern, beside you</h1>
     <p>Import a Stitchy backup from Files. Your chart and progress stay on this device and work offline.</p>
-    <label class="primary">Import <code>.stitchy.zip</code><input id="file" type="file" accept=".zip,.stitchy.zip"></label>
-    <button id="demo" style="margin-left:8px">Try bunny demo</button>
+    <label class="primary" title="Import a private Stitchy backup from this device">Import <code>.stitchy.zip</code><input id="file" type="file" accept=".zip,.stitchy.zip" aria-label="Import a private Stitchy backup"></label>
+    <button id="demo" title="Open the included practice pattern" style="margin-left:8px">Try bunny demo</button>
     <div id="projects"></div><p class="install">In Safari, tap Share → <b>Add to Home Screen</b> to install Stitchy.</p>
   </section>
 </main>
 <main id="workspace" hidden>
   <nav>
-    <button data-mode="mark" class="on">✓ Mark</button><button data-mode="select">◉ Color</button>
-    <button data-mode="park">⚑ Park</button><button data-mode="note">✎ Note</button>
-    <button id="undo">↶</button><button id="fit">Fit</button><button id="session">Stitch mode</button>
+    <button data-tool="mark" title="Tap stitches to mark or unmark them as completed" class="on">✓ Mark</button><button id="colorPicker" title="Highlight one thread color while keeping Mark available">◉ Choose color</button>
+    <button data-tool="park" title="Remember where you left a working thread so you can return to it later">⚑ Park thread</button><button data-tool="note" title="Attach or edit a note on a stitch">✎ Note</button>
+    <button id="undo" title="Undo the most recent completed-stitch mark" aria-label="Undo last mark">↶</button><button id="fit" title="Fit the entire pattern into the available screen">Fit</button><button id="session" title="Keep the screen awake and time this stitching session">Stitch mode</button>
   </nav>
-  <div id="status"><b id="percent">0%</b><span id="counts"></span><span id="clock"></span></div>
+  <div id="status"><b id="percent">0%</b><span id="counts"></span><span id="colorStatus" hidden></span><span id="clock"></span></div>
   <div id="viewport"><canvas id="chart"></canvas></div>
   <aside id="palette"></aside>
-  <footer><button id="export">Export backup</button><button id="clearColor">Show all colors</button></footer>
+  <footer><button id="export" title="Download this pattern and its current progress as a private backup">Export backup</button><button id="clearColor" title="Clear the color highlight and display the full pattern">Show all colors</button></footer>
 </main>
 <dialog id="library"><h2>Projects</h2><div id="libraryList"></div><button onclick="this.closest('dialog').close()">Close</button></dialog>
 <div id="toast"></div><script src="app.js"></script>
