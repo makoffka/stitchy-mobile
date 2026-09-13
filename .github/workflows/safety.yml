@@ -1,0 +1,23 @@
+name: Public repository safety
+on: [push, pull_request]
+jobs:
+  prohibit-private-patterns:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject private chart formats
+        shell: bash
+        run: |
+          set -euo pipefail
+          bad="$(find . -type f \( -iname '*.xsd' -o -iname '*.saga' -o -iname '*.css' -o -iname '*.pdf' -o -iname '*.stitchy.zip' \) ! -path './style.css' ! -path './demo/stitchy-bunny.stitchy.zip' -print)"
+          if [ -n "$bad" ]; then
+            echo "Private pattern material is prohibited:"
+            echo "$bad"
+            exit 1
+          fi
+          if unzip -l demo/stitchy-bunny.stitchy.zip | grep -qi 'pattern.xsd'; then
+            echo "The public demo must never contain an XSD payload."
+            exit 1
+          fi
+      - name: Check JavaScript syntax
+        run: node --check app.js
