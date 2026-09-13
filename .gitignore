@@ -1,0 +1,14 @@
+.DS_Store
+*.xsd
+*.saga
+*.css
+!style.css
+*.pdf
+*.stitchy.zip
+!demo/stitchy-bunny.stitchy.zip
+exports/
+uploads/
+trash/
+tmp/
+build/
+dist/

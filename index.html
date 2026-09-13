@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#d9799a"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png">
+<title>Stitchy Mobile</title><link rel="stylesheet" href="style.css">
+<style>.primary{position:relative}.primary input{display:block;position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}</style>
+</head>
+<body>
+<header><div><b>Stitchy</b><span id="subtitle">Mobile stitching companion</span></div><button id="libraryBtn">Projects</button></header>
+<main id="home">
+  <section class="welcome"><img src="icon-192.png" alt=""><h1>Your pattern, beside you</h1>
+    <p>Import a Stitchy backup from Files. Your chart and progress stay on this device and work offline.</p>
+    <label class="primary">Import <code>.stitchy.zip</code><input id="file" type="file" accept=".zip,.stitchy.zip"></label>
+    <button id="demo" style="margin-left:8px">Try bunny demo</button>
+    <div id="projects"></div><p class="install">In Safari, tap Share → <b>Add to Home Screen</b> to install Stitchy.</p>
+  </section>
+</main>
+<main id="workspace" hidden>
+  <nav>
+    <button data-mode="mark" class="on">✓ Mark</button><button data-mode="select">◉ Color</button>
+    <button data-mode="park">⚑ Park</button><button data-mode="note">✎ Note</button>
+    <button id="undo">↶</button><button id="fit">Fit</button><button id="session">Stitch mode</button>
+  </nav>
+  <div id="status"><b id="percent">0%</b><span id="counts"></span><span id="clock"></span></div>
+  <div id="viewport"><canvas id="chart"></canvas></div>
+  <aside id="palette"></aside>
+  <footer><button id="export">Export backup</button><button id="clearColor">Show all colors</button></footer>
+</main>
+<dialog id="library"><h2>Projects</h2><div id="libraryList"></div><button onclick="this.closest('dialog').close()">Close</button></dialog>
+<div id="toast"></div><script src="app.js"></script>
+</body></html>
