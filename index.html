@@ -20,8 +20,9 @@
 </main>
 <main id="workspace" hidden>
   <nav>
-    <button data-tool="mark" title="Tap stitches to mark or unmark them as completed" class="on">✓ Mark</button><button id="colorPicker" title="Highlight one thread color while keeping Mark available">◉ Choose color</button>
+    <button data-tool="mark" aria-pressed="true" title="Tap stitches to mark them completed; click again for pan-only mode" class="on">✓ Mark</button><button id="colorPicker" title="Highlight one thread color while keeping Mark available">◉ Choose color</button>
     <button data-tool="park" title="Remember where you left a working thread so you can return to it later">⚑ Park thread</button><button data-tool="note" title="Attach or edit a note on a stitch">✎ Note</button>
+    <button id="symbolsToggle" class="on" aria-pressed="true" title="Show or hide a readable symbol in every full stitch">Symbols</button><button id="backToggle" class="on" aria-pressed="true" title="Show or hide backstitch and straight-stitch lines">Backstitch</button>
     <button id="undo" title="Undo the most recent completed-stitch mark" aria-label="Undo last mark">↶</button><button id="fit" title="Fit the entire pattern into the available screen">Fit</button><button id="session" title="Keep the screen awake and time this stitching session">Stitch mode</button>
   </nav>
   <div id="status"><b id="percent">0%</b><span id="counts"></span><span id="colorStatus" hidden></span><span id="clock"></span></div>
